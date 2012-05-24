@@ -27,6 +27,6 @@ public class Inputer {
       System.err.println("IO Error");
       System.exit(1);
     }
-    manager.trigger(manager.INSERT_TO_TEXTLINES_EVENT);
+    manager.trigger(manager.SORT_DONE);
   }
 }

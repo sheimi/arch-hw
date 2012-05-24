@@ -18,9 +18,6 @@ public class TextLines {
 
   public void insert(String line) {
     lines.add(line);
-  }
-
-  public void insertDone() {
     manager.trigger(manager.INSERT_TO_TEXTLINES_EVENT);
   }
 
