@@ -6,7 +6,7 @@ public class Inputer extends Filter {
 
   BufferedReader reader;
 
-  public Inputer(String filename, Pipe output) {
+  public Inputer(String filename, TextLinePipe output) {
     super(null, output);
     try {
       reader = new BufferedReader(new FileReader(filename));

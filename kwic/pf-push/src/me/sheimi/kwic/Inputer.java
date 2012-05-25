@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Inputer extends Filter {
 
-  public Inputer(Pipe output) {
+  public Inputer(TextLinePipe output) {
     super(null, output);
   }
 

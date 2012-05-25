@@ -6,7 +6,7 @@ public class Alphabetizer extends Filter {
 
   private List<String> list = new ArrayList<String>();
 
-  public Alphabetizer(Pipe input, Pipe output) {
+  public Alphabetizer(TextLinePipe input, TextLinePipe output) {
     super(input, output);
   }
 

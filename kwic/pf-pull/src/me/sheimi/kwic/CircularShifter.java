@@ -6,13 +6,13 @@ public class CircularShifter extends Filter {
 
   private Queue<String> queue = new LinkedList<String>();
 
-  public CircularShifter(Pipe input, Pipe output) {
+  public CircularShifter(TextLinePipe input, TextLinePipe output) {
     super(input, output);
   }
 
   public String onRequest() {
     if (queue.isEmpty()) {
-      String line = input.poll();
+      String line = input.pull();
       if (line == null)
         return line;
       boolean blank = false;

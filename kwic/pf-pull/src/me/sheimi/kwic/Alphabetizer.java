@@ -6,7 +6,7 @@ public class Alphabetizer extends Filter {
 
   Queue<String> list; 
 
-  public Alphabetizer(Pipe input, Pipe output) {
+  public Alphabetizer(TextLinePipe input, TextLinePipe output) {
     super(input, output);
   }
 
@@ -14,7 +14,7 @@ public class Alphabetizer extends Filter {
     if (list == null) {
       list = new LinkedList<String>();
       while (true) {
-        String line = input.poll();
+        String line = input.pull();
         if (line == null)
           break;
         list.offer(line); 

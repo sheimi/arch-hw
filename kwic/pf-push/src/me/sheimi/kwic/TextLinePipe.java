@@ -3,12 +3,12 @@ package me.sheimi.kwic;
 import java.io.*;
 import java.util.*;
 
-public class Pipe {
+public class TextLinePipe {
 
   private Filter in;
   private Filter out;
   
-  public Pipe() {
+  public TextLinePipe() {
   }
 
   public void setIn(Filter in) {
@@ -19,7 +19,11 @@ public class Pipe {
     this.out = out;
   }
 
-  public String poll() {
-    return in.poll();
+  public void push(String line) {
+    out.push(line);
+  }
+
+  public void close() {
+    out.push(null);
   }
 }

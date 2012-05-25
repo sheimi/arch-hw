@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Outputer extends Filter {
 
-  public Outputer(Pipe input) {
+  public Outputer(TextLinePipe input) {
     super(input, null);
   }
 

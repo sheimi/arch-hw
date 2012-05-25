@@ -1,33 +1,21 @@
 package me.sheimi.kwic;
 
+import java.util.*;
+
 public class Control {
 
-  Alphabetizer alph;
-  CircularShifter circ;
-  Inputer input;
-  Outputer output;
+  public final static int inTextLine = 0;
+  public final static int shiftedTextLine = 1;
+  public final static int sortedTextLines = 2;
 
-  public Control(Inputer input, CircularShifter circ, Alphabetizer alph, Outputer output) {
-    this.alph = alph;
-    this.circ = circ;
-    this.input = input;
-    this.output = output;
+  private Knowledge[] klgs = new Knowledge[3];
+
+  public void setInterest(int interest, Knowledge k) {
+    klgs[interest] = k;
   }
 
-  public void start() {
-    input.start();
-  }
-
-  public void updateOLineDone() {
-    circ.start();
-  }
-
-  public void updateSLineDone() {
-    alph.start();
-  }
-
-  public void updateALineDone() {
-    output.start();
+  public void updateInterest(int interest) {
+    klgs[interest].update();
   }
 
 }

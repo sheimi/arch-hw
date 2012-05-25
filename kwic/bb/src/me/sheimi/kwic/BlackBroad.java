@@ -4,38 +4,40 @@ import java.util.*;
 
 public class BlackBroad {
 
-  private List<String> o_line = new ArrayList<String>();
-  private List<String> s_line = new ArrayList<String>();
-  private List<String> a_line = new ArrayList<String>();
+  private String inTextLine = "";
+  private String shiftedTextLine = "";
+  private List<String> sortedTextLines = new ArrayList<String>();
 
   public Control ctr;
 
-  public void setCtr(Control ctr) {
+  public BlackBroad(Control ctr) {
     this.ctr = ctr;
   }
 
-  public void updateOLine() {
-    ctr.updateOLineDone();
+  public String getInTextLine() {
+    return inTextLine;
   }
 
-  public List<String> getOLine() {
-    return o_line;
+  public String getShiftedTextLine() {
+    return shiftedTextLine;
   }
 
-  public void updateSLine() {
-    ctr.updateSLineDone();
+  public List<String> getSortedTextLines() {
+    return sortedTextLines; 
+  } 
+
+  public void updateInTextLine(String in) {
+    this.inTextLine = in;
+    ctr.updateInterest(Control.inTextLine);
   }
 
-  public List<String> getSLine() {
-    return s_line;
+  public void updateShiftedTextLine(String s) {
+    this.shiftedTextLine = s;
+    ctr.updateInterest(Control.shiftedTextLine);
   }
 
-  public void updateALine() {
-    ctr.updateALineDone();
-  }
-
-  public List<String> getALine() {
-    return a_line;
+  public void updateSortedTextLines() {
+    ctr.updateInterest(Control.sortedTextLines);
   }
 
 }

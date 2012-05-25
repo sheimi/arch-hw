@@ -3,31 +3,27 @@ package me.sheimi.kwic;
 import java.util.*;
 import java.io.*;
 
-public class CircularShifter {
+public class CircularShifter extends Knowledge {
 
-  BlackBroad bb;
-  
   public CircularShifter(BlackBroad bb) {
-    this.bb = bb;
+    super(bb);
   }
   
-  public void start() {
-    List<String> oline = bb.getOLine();
-    List<String> shifted = bb.getSLine();
-    for (String line : oline) {
-      shifted.add(line);
-      boolean blank = false;
-      for (int j = 0; j < line.length(); j++) {
-        if (blank && line.charAt(j) != ' ') {
-          String s = line.substring(j) + ' ' + line.substring(0, j - 1);
-          blank = false;
-          shifted.add(s);
-        }
-        if (line.charAt(j) == ' ' && !blank) {
-          blank = true;
-        }
+  public void update() {
+    String line = bb.getInTextLine();
+    bb.updateShiftedTextLine(line);
+    if (line == null)
+      return;
+    boolean blank = false;
+    for (int j = 0; j < line.length(); j++) {
+      if (blank && line.charAt(j) != ' ') {
+        String s = line.substring(j) + ' ' + line.substring(0, j - 1);
+        blank = false;
+        bb.updateShiftedTextLine(s);
+      }
+      if (line.charAt(j) == ' ' && !blank) {
+        blank = true;
       }
     }
-    bb.updateSLine();
   }
 }

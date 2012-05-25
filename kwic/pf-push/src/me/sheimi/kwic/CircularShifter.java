@@ -2,7 +2,7 @@ package me.sheimi.kwic;
 
 public class CircularShifter extends Filter {
 
-  public CircularShifter(Pipe input, Pipe output) {
+  public CircularShifter(TextLinePipe input, TextLinePipe output) {
     super(input, output);
   }
 

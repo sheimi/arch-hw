@@ -3,16 +3,14 @@ package me.sheimi.kwic;
 import java.util.*;
 import java.io.*;
 
-public class Outputer {
-
-  private BlackBroad bb;
+public class Outputer extends Knowledge {
 
   public Outputer(BlackBroad bb) {
-    this.bb = bb;
+    super(bb);
   }
 
-  public void start() {
-    List<String> ss = bb.getALine();
+  public void update() {
+    List<String> ss = bb.getSortedTextLines();
     for (String s : ss) {
       System.out.println(s);
     }

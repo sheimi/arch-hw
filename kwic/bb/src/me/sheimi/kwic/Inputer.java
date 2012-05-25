@@ -3,26 +3,23 @@ package me.sheimi.kwic;
 import java.util.*;
 import java.io.*;
 
-public class Inputer {
+public class Inputer extends Knowledge {
 
-  private BlackBroad bb;
   private String filename;
 
   public Inputer(String filename, BlackBroad bb) {
-    this.bb = bb;
+    super(bb);
     this.filename = filename;
   }
 
-  public void start() {
-    List<String> store = bb.getOLine();
+  public void update() {
     try {
       BufferedReader reader = new BufferedReader(new FileReader(filename));
       String line = null;
       while (true) {
         line =  reader.readLine();
-        if (line != null) {
-          store.add(line);
-        } else {
+        bb.updateInTextLine(line);
+        if (line == null) {
           break;
         }
       }
@@ -33,6 +30,5 @@ public class Inputer {
       System.err.println("IO Error");
       System.exit(1);
     }
-    bb.updateOLine();
   }
 }
